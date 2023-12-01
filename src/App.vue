@@ -1,14 +1,15 @@
 <template>
-<div></div>
+<SignUp/>
 </template>
 
 <script>
 
-
+import SignUp from './components/SignupForm.vue'
 export default {
+ 
   name: 'App',
   components: {
-  
+    SignUp
   }
 }
 </script>
