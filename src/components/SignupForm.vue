@@ -1,10 +1,10 @@
 <template lang="">
-  <form>
+  <form @submit.prevent="handlesubmit">
     <label> Email:</label>
-    <input type="email" required v-model="email" />
+    <input type="email"  v-model="email" />
 
     <label> Password:</label>
-    <input type="password" required v-model="pass" />
+    <input type="password"  v-model="pass" />
 
     <label>Role:</label>
 
@@ -34,6 +34,8 @@
       <input type="checkbox" value="faten" v-model="names" />
       <label>faten</label>
     </div>
+
+    <button type="submit">submit</button>
   </form>
 
   <p>email:{{ email }}</p>
@@ -78,6 +80,9 @@ export default {
       return skill !== item;
     });
   },
+  handlesubmit(){
+console.log("form submited")
+  }
   },
 
 };
