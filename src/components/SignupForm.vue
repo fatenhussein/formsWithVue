@@ -13,6 +13,9 @@
       <option value="designer">web designer</option>
     </select>
 
+    <label> skills:::</label>
+    <input type="text" v-model="tempSkill" @keyup.alt="addSkill" />
+
     <div class="terms">
       <input type="checkbox" v-model="terms" />
 
@@ -39,7 +42,11 @@
 
   <p>terms accsepted :{{ terms }}</p>
 
-  <p> {{names}}</p>
+  <p>{{ names }}</p>
+
+  <div v-for="skill in skills" :key="skill">
+    <span @click="deleteSkill(skill)">{{ skill }}</span>
+  </div>
 </template>
 <script>
 export default {
@@ -50,8 +57,29 @@ export default {
       role: 'designer',
       terms: false,
       names: [],
+      tempSkill: '',
+      skills: [],
     };
   },
+
+  methods: {
+    addSkill(e) {
+      console.log(e);
+      if (e.key === ',' && this.tempSkill) {
+        if (!this.skills.includes(this.tempSkill)) {
+          this.skills.push(this.tempSkill);
+        }
+
+        this.tempSkill = '';
+      }
+    },
+    deleteSkill(skill) {
+    this.skills = this.skills.filter((item) => {
+      return skill !== item;
+    });
+  },
+  },
+
 };
 </script>
 <style lang=""></style>
