@@ -13,14 +13,23 @@
       <option value="designer">web designer</option>
     </select>
 
-
-
-
     <div class="terms">
-        <input type="checkbox" v-model='terms'>
+      <input type="checkbox" v-model="terms" />
 
-        <label > accept terms and conditions </label>
+      <label> accept terms and conditions </label>
+    </div>
 
+    <div>
+      <input type="checkbox" value="shone" v-model="names" />
+      <label>shone</label>
+    </div>
+    <div>
+      <input type="checkbox" value="ftft" v-model="names" />
+      <label>ftft</label>
+    </div>
+    <div>
+      <input type="checkbox" value="faten" v-model="names" />
+      <label>faten</label>
     </div>
   </form>
 
@@ -28,7 +37,9 @@
   <p>pass:{{ pass }}</p>
   <p>role:{{ role }}</p>
 
-  <p>terms accsepted :{{terms}}</p>
+  <p>terms accsepted :{{ terms }}</p>
+
+  <p> {{names}}</p>
 </template>
 <script>
 export default {
@@ -37,7 +48,8 @@ export default {
       email: 'hhh',
       pass: '',
       role: 'designer',
-      terms: false
+      terms: false,
+      names: [],
     };
   },
 };
